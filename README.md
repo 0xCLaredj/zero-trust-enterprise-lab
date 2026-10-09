@@ -67,7 +67,7 @@ The application role retains SELECT, so stolen credentials can expose readable d
 - [`infrastructure/terraform/`](infrastructure/README.md): historical baseline Terraform, not final hardened infrastructure-as-code.
 - [`controls/`](controls/README.md): copied database transaction and explicitly reconstructed Wazuh references.
 - [`evidence/`](evidence/index.md): dated summaries and machine-readable scan extracts; historical results remain separate from local code checks.
-- [`docs/report/`](docs/report/README.md): portable public LaTeX/PDF edition; unreviewed screenshots are omitted.
+- [`docs/report/`](docs/report/README.md): public LaTeX/PDF edition synchronized on October 9; private screenshots and per-device tailnet addresses are removed, with text evidence summaries linked.
 - [`tests/`](tests/validation-procedures.md): offline authorization checks and bounded lab validation procedures.
 
 ## Local inspection

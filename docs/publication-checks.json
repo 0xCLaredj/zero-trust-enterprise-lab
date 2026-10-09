@@ -1,5 +1,14 @@
 {
-  "scope": "Local text/PDF-text, original credential-literal checks, AST and Markdown links; no Git history exists. Screenshots omitted. No credential rotation or live deployment validated.",
+  "scope": "Full staging-tree scan recorded previously; report edition refreshed separately on 2026-10-09. Public report TeX/PDF checked for per-device Tailscale endpoint addresses, local paths, private evidence paths and email addresses; no findings. No Git history, dedicated whole-tree secret-scanner clearance, credential rotation, live deployment, licensing review or publication clearance is claimed.",
   "files_checked": 55,
-  "findings": []
+  "findings": [],
+  "public_report_refresh": {
+    "date": "2026-10-09",
+    "pages": 72,
+    "private_screenshots_included": false,
+    "tailnet_endpoint_addresses_found": 0,
+    "local_paths_found": 0,
+    "malformed_evidence_links_found": 0,
+    "full_tree_scan_repeated": false
+  }
 }

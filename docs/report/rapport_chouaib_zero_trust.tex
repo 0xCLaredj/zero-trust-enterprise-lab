@@ -30,10 +30,10 @@
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcommand{\publiccapture}[1]{%
   \begin{figure}[H]\centering
-  \fbox{\parbox{.88\linewidth}{\centering\small Capture privée omise dans cette édition publique ; voir le registre des preuves.}}
+  {\footnotesize\itshape Capture non reproduite dans l'édition publique.}
   \caption{#1}\end{figure}}
 \begin{document}
-\hypersetup{pageanchor=false}
+\hypersetup{pageanchor=false,pdftitle={Zero Trust Hybrid Lab -- Portfolio Report},pdfauthor={Chouaib Laredj},pdfsubject={Engineering evaluation of selected Zero Trust controls in a hybrid GCP lab},pdfkeywords={Zero Trust, cloud security, GCP, OIDC, RBAC, PostgreSQL, Wazuh}}
 \begin{titlepage}
 \thispagestyle{empty}
 \begin{center}
@@ -62,10 +62,11 @@ Présenté par :\\{\Large\bfseries Chouaib LAREDJ}
 
 Encadrante : Dr JIHANE JEBRANE\\
 \vfill
-Édition portfolio publique — octobre 2026\\
-Captures privées et adresses du tailnet retirées\\
+{\large\bfseries RAPPORT PUBLIC}\\[0.2cm]
+{\small Édition portfolio publique — octobre 2026\\
+(Captures d'écran et adresses privées du laboratoire omises)}\\
 \vspace{.4cm}
-Année universitaire 2025--2026
+Année universitaire 2026--2027
 \end{center}
 \end{titlepage}
 \pagenumbering{roman}
@@ -783,7 +784,7 @@ Après, 07/10 & lab-employee & /employee & 200 à 14:16:29 ; accès métier main
 Après, 07/10 & carol.admin & /admin & 200 à 14:26:35 ; contrôle positif après attribution déclarée de portal-admin.\\\bottomrule
 \end{tabularx}\end{table}
 
-Les journaux montrent la même source réseau \texttt{10.0.20.3}, correspondant au proxy via vm-keycloak puis au VPC. Les captures et sorties fournies par l'utilisateur sont conservées dans le dossier privé \texttt{../../evidence/index.md20261007\_manual\_rbac}. Les journaux HTTP corroborent les routes, statuts et horaires ; ils ne contiennent pas l'identité de session. La capture de Role mapping confirme l'attribution directe de portal-admin à carol.admin ; la connexion avec ce compte est confirmée par l'utilisateur. Ce résultat valide le comportement testé du contrôle applicatif, sans mesurer les autres chemins d'accès ni la détection Wazuh.
+Les journaux montrent la même source réseau \texttt{10.0.20.3}, correspondant au proxy via vm-keycloak puis au VPC. Les observations et limites publiées sont résumées dans \url{../../evidence/rbac.md}. Les journaux HTTP corroborent les routes, statuts et horaires ; ils ne contiennent pas l'identité de session. La capture de Role mapping confirme l'attribution directe de portal-admin à carol.admin ; la connexion avec ce compte est confirmée par l'utilisateur. Ce résultat valide le comportement testé du contrôle applicatif, sans mesurer les autres chemins d'accès ni la détection Wazuh.
 
 \publiccapture{S03 après contrôle : refus HTTP 403 sur la route admin}
 \publiccapture{Attribution directe du rôle portal-admin au compte carol.admin}
@@ -1027,12 +1028,12 @@ La période de juillet à septembre correspond à la construction et à la prép
 \subsection{Fiabilité opérationnelle et attribution des résultats}
 Le travail a également porté sur la restauration des dépendances et sur la fiabilité des mesures. Le 7 octobre, le démarrage du gestionnaire Wazuh expire sous systemd alors que certains démons restent présents. Le diagnostic distingue service actif, agents connectés et analyse effective. Une extension de \texttt{TimeoutStartSec} à 180~s est suivie d'un démarrage réussi à 20:14:03 UTC ; la nécessité de cette extension et la cause complète du démarrage lent ne sont pas établies ; un nouveau refus applicatif est ensuite relié à l'alerte manager et au document indexé. Cette restauration ne prouve pas la continuité de tous les agents, notamment celle du poste Windows.
 
-Le 8 octobre, le portail ne présente plus de listener TCP~80 après arrêt de son unité transitoire. Le source existant est inspecté puis relancé sans debug ni reloader ; la racine répond 200 et les routes protégées anonymes répondent 302 à 19:28:45 UTC. Cela valide la récupération du service et les gardes anonymes, sans nouveau parcours authentifié. Les preuves sont conservées dans \url{../../evidence/hybrid.mdOBSERVATIONS.md} ; les journaux de récupération Wazuh sont dans \url{../../evidence/rbac.md}.
+Le 8 octobre, le portail ne présente plus de listener TCP~80 après arrêt de son unité transitoire. Le source existant est inspecté puis relancé sans debug ni reloader ; la racine répond 200 et les routes protégées anonymes répondent 302 à 19:28:45 UTC. Cela valide la récupération du service et les gardes anonymes, sans nouveau parcours authentifié. Les preuves sont conservées dans \url{../../evidence/hybrid.md} ; les journaux de récupération Wazuh sont résumés dans \url{../../evidence/wazuh.md}.
 
 L'attribution des sondes a été corrigée lorsque le prompt d'une capture montrait vm-db malgré une étiquette annonçant une autre source. Les contrôles suivants utilisent une vérification de hostname, des horaires UTC et des chemins identifiés. De même, l'audit des droits SQL examine les privilèges effectifs hérités de \texttt{PUBLIC}, et pas uniquement les droits directement accordés à \texttt{app\_user}. Les scripts et observations sont conservés dans \url{../../evidence/database.md}. Ces travaux expliquent comment les résultats ont été rendus défendables.
 
 \subsection{Limites opérationnelles de l'état gelé}
-Le 8 octobre, les adresses partagées de Keycloak/proxy et du routeur web (\texttt{10.0.20.3} et \texttt{10.0.20.2}) sont exclues du blocage automatique Wazuh. Cette modification limite le risque de couper un chemin partagé, mais réduit aussi la possibilité de confiner individuellement un client masqué par le proxy ou SNAT. Deux blocs de réponse identiques restent configurés. L'expiration effective, la continuité de tous les agents et les effets de ces exclusions ne sont pas mesurés ; les événements 403 et leur alerte doivent être distingués de la décision de blocage. L'inspection est conservée dans \url{../../evidence/hybrid.mdANTIGRAVITY_REVIEW.md}.
+Le 8 octobre, les adresses partagées de Keycloak/proxy et du routeur web (\texttt{10.0.20.3} et \texttt{10.0.20.2}) sont exclues du blocage automatique Wazuh. Cette modification limite le risque de couper un chemin partagé, mais réduit aussi la possibilité de confiner individuellement un client masqué par le proxy ou SNAT. Deux blocs de réponse identiques restent configurés. L'expiration effective, la continuité de tous les agents et les effets de ces exclusions ne sont pas mesurés ; les événements 403 et leur alerte doivent être distingués de la décision de blocage. L'inspection est conservée dans \url{../../evidence/hybrid.md}.
 
 Le périmètre des règles étudiées est principalement ingress IPv4. Il n'établit pas une politique egress complète, une protection contre l'exfiltration des données lisibles, une restauration éprouvée, ni une équivalence entre le Terraform initial et toutes les mutations du cloud. Les contrôles positifs portent sur des flux et horaires précis ; ils ne constituent pas une mesure de disponibilité continue. Le gel préserve ces limites comme dette documentée.
 
@@ -1104,7 +1105,7 @@ Cette annexe relie les résultats aux traces disponibles et aux procédures de r
 \section{Registre des preuves de l'édition publique}
 Les résumés suivants sont inclus sous \texttt{evidence/} dans le dépôt. Ils documentent la provenance et les limites des résultats ; les captures privées et les traces brutes non autorisées à la diffusion ne sont pas intégrées à ce PDF.
 \begingroup\small\setlength{\tabcolsep}{4pt}
-\begin{longtable}{@{}p{3.2cm}p{10.6cm}@{}}
+\begin{longtable}{@{}p{4.2cm}p{9.6cm}@{}}
 \toprule Résultat et preuve & Portée et limites\\\midrule\endhead
 \href{../../evidence/rbac.md}{RBAC} & Employé refusé sur /admin, compte de test autorisé admis ; routes et chemin observés.\\
 \href{../../evidence/wazuh.md}{Détection Wazuh} & Cinq paires événement--alerte ; échantillon descriptif, sans taux global ni délai de confinement.\\
