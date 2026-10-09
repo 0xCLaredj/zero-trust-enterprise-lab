@@ -1,0 +1,26 @@
+{
+  "provenance": "S04-after-db.xml",
+  "source_sha256": "84e24708fd25ca3eb5279c729c02c67f489691b75d72c2961369a59fe357c15e",
+  "scan_start_epoch": "1791383908",
+  "hosts": [
+    {
+      "addresses": [
+        {
+          "addr": "10.0.20.4",
+          "addrtype": "ipv4"
+        }
+      ],
+      "ports": [
+        {
+          "protocol": "tcp",
+          "port": 5432,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        }
+      ]
+    }
+  ]
+}

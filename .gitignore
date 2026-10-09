@@ -1,0 +1,52 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+credentials*
+secrets/
+
+# Terraform local state, plans, and provider cache
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+*.tfvars
+!*.tfvars.example
+
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Raw or private evidence/logs; curated redacted evidence may be committed
+evidence/raw/
+evidence/private/
+*.log
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+
+# Local editor/OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Additional LaTeX lists
+*.lof
+*.lot

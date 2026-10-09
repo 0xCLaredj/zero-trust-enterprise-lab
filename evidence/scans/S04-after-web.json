@@ -1,0 +1,26 @@
+{
+  "provenance": "S04-after-web.xml",
+  "source_sha256": "9951ed93f19678854aa2c705fb72bd684fb8b861d7653e8d15f92ac0d6a9c58e",
+  "scan_start_epoch": "1791383904",
+  "hosts": [
+    {
+      "addresses": [
+        {
+          "addr": "10.0.20.2",
+          "addrtype": "ipv4"
+        }
+      ],
+      "ports": [
+        {
+          "protocol": "tcp",
+          "port": 80,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        }
+      ]
+    }
+  ]
+}

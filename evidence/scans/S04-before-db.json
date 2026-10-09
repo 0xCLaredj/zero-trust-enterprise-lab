@@ -1,0 +1,26 @@
+{
+  "provenance": "S04-before-db.xml",
+  "source_sha256": "ce0b3691ed07ccc71eb2bf9e29f293d41c958e839957d3c4fe3f6a6e37b13cbd",
+  "scan_start_epoch": "1791383742",
+  "hosts": [
+    {
+      "addresses": [
+        {
+          "addr": "10.0.20.4",
+          "addrtype": "ipv4"
+        }
+      ],
+      "ports": [
+        {
+          "protocol": "tcp",
+          "port": 5432,
+          "state": {
+            "state": "open",
+            "reason": "syn-ack",
+            "reason_ttl": "0"
+          }
+        }
+      ]
+    }
+  ]
+}

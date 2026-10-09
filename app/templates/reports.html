@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reports Dashboard</h2>
+<p>Phase 1: No authentication. Anyone can view this.</p>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Company</th>
+        <th>Email</th>
+        <th>Value</th>
+        <th>Status</th>
+        <th>Notes</th>
+    </tr>
+    {% for client in clients %}
+    <tr>
+        <td>{{ client[0] }}</td>
+        <td>{{ client[1] }}</td>
+        <td>{{ client[2] }}</td>
+        <td>{{ client[3] }}</td>
+        <td>{{ client[4] }}</td>
+        <td>{{ client[5] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,10 @@
+<!-- Reconstructed from recorded rule semantics; validate with wazuh-logtest before use. -->
+<group name="zt_portal,">
+  <rule id="100510" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="event_source">^zt_portal$</field>
+    <field name="path">^/admin$</field>
+    <status>403</status>
+    <description>Portal administrator access denied.</description>
+  </rule>
+</group>

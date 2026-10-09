@@ -1,0 +1,62 @@
+{
+  "provenance": "S04-after-ad.xml",
+  "source_sha256": "0db1dab7491f91026fafb76b85eaabd374d9ddbdd38e9cbfdaa2725dd82ac356",
+  "scan_start_epoch": "1791383910",
+  "hosts": [
+    {
+      "addresses": [
+        {
+          "addr": "10.0.20.5",
+          "addrtype": "ipv4"
+        }
+      ],
+      "ports": [
+        {
+          "protocol": "tcp",
+          "port": 53,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        },
+        {
+          "protocol": "tcp",
+          "port": 88,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        },
+        {
+          "protocol": "tcp",
+          "port": 389,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        },
+        {
+          "protocol": "tcp",
+          "port": 445,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        },
+        {
+          "protocol": "tcp",
+          "port": 3389,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        }
+      ]
+    }
+  ]
+}

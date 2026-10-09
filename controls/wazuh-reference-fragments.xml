@@ -1,0 +1,18 @@
+<!-- Documented reference fragments, not a complete ossec.conf export. -->
+<ossec_config>
+  <localfile>
+    <log_format>json</log_format>
+    <location>/var/log/zt-portal/security_audit.json</location>
+  </localfile>
+  <global>
+    <white_list>127.0.0.1</white_list>
+    <white_list>10.0.20.2</white_list>
+    <white_list>10.0.20.3</white_list>
+  </global>
+  <active-response>
+    <command>firewall-drop</command>
+    <location>local</location>
+    <rules_id>100510</rules_id>
+    <timeout>60</timeout>
+  </active-response>
+</ossec_config>

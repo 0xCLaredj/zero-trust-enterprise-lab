@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Console</h2>
+<p>Phase 1: No authentication. Anyone can view this.</p>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Key</th>
+        <th>Value</th>
+        <th>Is Secret</th>
+        <th>Last Modified</th>
+    </tr>
+    {% for config in configs %}
+    <tr>
+        <td>{{ config[0] }}</td>
+        <td>{{ config[1] }}</td>
+        <td>{{ config[2] }}</td>
+        <td>{{ config[3] }}</td>
+        <td>{{ config[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

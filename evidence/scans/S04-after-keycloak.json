@@ -1,0 +1,26 @@
+{
+  "provenance": "S04-after-keycloak.xml",
+  "source_sha256": "aab8977a6c1758c1629ced22eb64d2d720b6649a0aca4c89b7485c944753e1c6",
+  "scan_start_epoch": "1791383906",
+  "hosts": [
+    {
+      "addresses": [
+        {
+          "addr": "10.0.20.3",
+          "addrtype": "ipv4"
+        }
+      ],
+      "ports": [
+        {
+          "protocol": "tcp",
+          "port": 8080,
+          "state": {
+            "state": "filtered",
+            "reason": "no-response",
+            "reason_ttl": "0"
+          }
+        }
+      ]
+    }
+  ]
+}
